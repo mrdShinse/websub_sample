@@ -1,1 +1,12 @@
 <h2>Top</h2>
+<%= form_for [:user, @new_post], url: user_posts_path(current_user) do |f| %>
+  Content: <%= f.text_field :content %><br />
+  <%= f.submit %>
+<% end %>
+
+<h2>My Posts</h2>
+<% @my_posts.each do |post| %>
+  <span><%= post.content %></span><br />
+<% end %>
+
+<h2>Subscribing Posts</h2>
