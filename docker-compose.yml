@@ -13,9 +13,6 @@ services:
     volumes_from:
       - datastore
       - bundle
-    links:
-      - db
-      - redis
     tty: true
     stdin_open: true
 
@@ -31,24 +28,8 @@ services:
     volumes_from:
       - datastore
       - bundle
-    links:
-      - db
-      - redis
     tty: true
     stdin_open: true
-
-  db:
-    build: containers/mysql
-    container_name: websub_sample_db
-    environment:
-      MYSQL_ROOT_PASSWORD: 'password'
-      MYSQL_DATABASE: 'websub_sample_development'
-      MYSQL_USER: 'websub_sample'
-      MYSQL_PASSWORD: 'password'
-    ports:
-      - '3306:3306'
-    volumes_from:
-      - datastore
 
   datastore:
     build: containers/datastore
@@ -61,14 +42,6 @@ services:
     container_name: websub_sample_bundle
     volumes:
       - /bundle
-
-  redis:
-    image: redis:2.8.19
-    container_name: websub_sample_redis
-    ports:
-      - '6379:6379'
-    volumes_from:
-      - datastore
 
 # For docker-sync
 volumes:
