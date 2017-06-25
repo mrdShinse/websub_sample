@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'top#index'
 
   resources 'users', only: %I[] do
+    get 'feed'
     resources 'posts', only: %I[create update]
   end
 end
