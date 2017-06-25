@@ -1,24 +1,15 @@
-# README
+# Requirements
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Docker for mac
+- docker-sync
 
-Things you may want to cover:
+# Booting
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$ docker-compose Build
+$ docker-compose run websub_sample_publisher bash
+$ bundle install
+$ exit
+$ docker-sync start
+$ docker-compose up
+```
